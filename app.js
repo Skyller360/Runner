@@ -3,7 +3,7 @@ var game = new Phaser.Game(800, 600, Phaser.CANVAS, 'phaser-example', { preload:
 function preload() {
 
     game.load.spritesheet('dude', 'assets/games/starstruck/dude.png', 32, 48);
-    game.load.image('background', 'assets/games/starstruck/background2.png');
+    game.load.image('background', 'assets/metalslug/background.png');
     game.load.image('mushroom', 'assets/sprites/mushroom2.png');
 }
 
@@ -20,8 +20,8 @@ function create() {
 
     game.time.desiredFps = 30;
 
-    bg = game.add.tileSprite(0, 0, 800, 600, 'background');
-    game.world.setBounds(0, 0, 1280, 600);
+    bg = game.add.tileSprite(0, 0, 7667, 600, 'background');
+    game.world.setBounds(0, 0, 7667, 600);
 
     game.physics.arcade.gravity.y = 800;
 
@@ -42,19 +42,37 @@ function create() {
     game.camera.follow(player, Phaser.Camera.FOLLOW_LOCKON);
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
-    sprite2 = game.add.sprite(250, 250, 'mushroom');
-
+    sprite2 = game.add.sprite(600, 600, 'mushroom');
     sprite2.name = 'mushroom';
     game.physics.enable(sprite2, Phaser.Physics.ARCADE);
     sprite2.body.collideWorldBounds = true;
 
+    sprite3 = game.add.sprite(1200, 600, 'mushroom');
+    sprite3.name = 'mushroom';
+    game.physics.enable(sprite3, Phaser.Physics.ARCADE);
+    sprite3.body.collideWorldBounds = true;
+
+    sprite4 = game.add.sprite(2300, 600, 'mushroom');
+    sprite4.name = 'mushroom';
+    game.physics.enable(sprite4, Phaser.Physics.ARCADE);
+    sprite4.body.collideWorldBounds = true;
+
+    sprite5 = game.add.sprite(3000, 600, 'mushroom');
+    sprite5.name = 'mushroom';
+    game.physics.enable(sprite5, Phaser.Physics.ARCADE);
+    sprite5.body.collideWorldBounds = true;
+
+    sprite6 = game.add.sprite(5000, 600, 'mushroom');
+    sprite6.name = 'mushroom';
+    game.physics.enable(sprite6, Phaser.Physics.ARCADE);
+    sprite6.body.collideWorldBounds = true;
 }
 
 function update() {
 
     // game.physics.arcade.collide(player, layer);
 
-    player.body.velocity.x = 180;
+    player.body.velocity.x = 300;
     player.animations.play('right');
 
     game.world.wrap(player, 0, true);
