@@ -14,6 +14,7 @@ function preload() {
     game.load.image('rock', 'assets/metalslug/rock.png');
     game.load.image('platform', 'assets/metalslug/platform.png');
     game.load.image('resetButton', 'assets/metalslug/resetButton.png');
+    game.load.image('goat', 'assets/metalslug/goat.png');
 }
 
 // SETTING VARIABLES
@@ -48,7 +49,7 @@ function create() {
     // SET CHARACTER SIZE AND SETTINGS
     player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
-    player.body.setSize(48, 54, 5, 16);
+    player.body.setSize(37.8, 50, 5, 16);
     player.scale.setTo(2, 2);
 
     // ANIMATE CHARACTER
@@ -66,6 +67,9 @@ function create() {
     createRock(30, rocks);
     createPlatform(10, platforms);
 
+    goat = game.add.sprite(7600, 600, 'goat');
+    game.physics.enable(goat, Phaser.Physics.ARCADE);
+    goat.body.collideWorldBounds = true;
 }
 
 function update() {
@@ -101,7 +105,7 @@ function update() {
     //     if (facing != 'right')
     //     {
     //         player.animations.play('right');
-    //         facing = 'right';
+    //         facing = 'right'; 
     //     }
     // }
 
