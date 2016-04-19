@@ -63,7 +63,6 @@ function create() {
 
 
     // CREATE ROCKS AND PLATFORMS
-    var rndRock = game.rnd.realInRange(20, 25);
     createRock(30, rocks);
     createPlatform(10, platforms);
 
@@ -159,15 +158,18 @@ function reset() {
     button.destroy();
 
     // KILL ROCK AND PLATFORMS FROM THE STAGE
-    for (var i = 0; i < platforms.length; i++) {
-        platforms[i].kill();
+     for (var i = 0; i < rocks.length; i++) {
+        rocks[i].destroy();
     }
-    for (var i = 0; i < rocks.length; i++) {
-        rocks[i].kill();
+    rocks = [];    
+    for (var i = 0; i < platforms.length; i++) {
+        platforms[i].destroy();
     }
 
+    platforms = [];
+    
+
     // CREATE ROCKS AND PLATFORMS
-    var rndRock = game.rnd.realInRange(20, 75);
     createRock(30, rocks);
     createPlatform(10, platforms);
 
@@ -179,9 +181,9 @@ function reset() {
 // CREATE ROCKS AT RANDOM PLACES BUT ON THE BOTTOM OF THE STAGE
 function createRock(nbr, rocks) {
 
+    var offset = 100;
     for (var i = 0; i < nbr; i++) {
         
-        var offset = 100;
         var rnd1 = game.rnd.realInRange(700, 3000);
         var rnd2 = game.rnd.realInRange(3010, 5000);
         var rnd3 = game.rnd.realInRange(5010, 7000);
@@ -207,11 +209,12 @@ function createRock(nbr, rocks) {
 // CREATE PLATFORMS AT RANDOM PLACES X BUT BETWEEN 500 AND 350 Y
 function createPlatform(nbr, platforms) {
 
-    var offset = 100;
+   var offset = 100;
 
     for (var i = 0; i < nbr; i++) {
+
         var rndY = game.rnd.realInRange(500, 350);
-      
+
         var rnd1 = game.rnd.realInRange(700, 3000);
         var rnd2 = game.rnd.realInRange(3010, 5000);
         var rnd3 = game.rnd.realInRange(5010, 7000);
