@@ -17,7 +17,7 @@ var jumpButton;
 var bg;
 
 function create() {
-game.stage.backgroundColor = '#2d2d2d';
+    game.stage.backgroundColor = '#79CCC9';
     game.physics.startSystem(Phaser.Physics.ARCADE);
 
     game.time.desiredFps = 30;
@@ -30,7 +30,7 @@ game.stage.backgroundColor = '#2d2d2d';
     player = game.add.sprite(52.4, 64, 'dude');
     game.physics.enable(player, Phaser.Physics.ARCADE);
 
-    player.body.bounce.y = 0.2;
+    player.body.bounce.y = 0;
     player.body.collideWorldBounds = true;
     player.body.setSize(48, 54, 5, 16);
     player.scale.setTo(2, 2);
@@ -117,7 +117,7 @@ function update() {
     if (jumpButton.isDown && player.body.onFloor() && game.time.now > jumpTimer)
     {
         player.body.velocity.y = -700;
-      	setTimeout(function() {player.body.velocity.y = 400;}, 400);
+      	setTimeout(function() {player.body.velocity.y = 300;}, 400);
         jumpTimer = game.time.now + 750;
     }
 
@@ -140,11 +140,11 @@ function collisionHandler (player) {
     // player.y = 0;
     // player.y = rocks[0].y - 150;
     player.kill();
-
+    game.stage.backgroundColor = '#992d2d';
 }
 
 function platformHandler(player) {
-	game.stage.backgroundColor = '#992d2d';
+	
 	player.body.velocity.x = 0;
 	player.y = (platform.y / 2) + 50;
 	// player.body.velocity.y = 0;
